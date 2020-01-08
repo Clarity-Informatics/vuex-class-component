@@ -244,7 +244,7 @@ function createGettersAndMutationProxyFromState(_a) {
                     set: function (payload) {
                         var commit = $store.commit || cls.prototype.__store_cache__.commit;
                         if (commit)
-                            commit(utils_1.refineNamespacedPath(cls.prototype.__namespacedPath__) + ("__" + className + "_internal_mutator__"), { field: path, payload: payload });
+                            commit(utils_1.refineNamespacedPath(cls.prototype.__namespacedPath__) + ("__" + className + "_internal_mutator__"), { field: path, payload: payload }, {root: true});
                         else {
                             // We must be creating local proxies hence, $store.commit doesn't exist
                             var store = cls.prototype.__context_store__;
